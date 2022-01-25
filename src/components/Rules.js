@@ -12,7 +12,7 @@ export default function Rules() {
   }
   return (
     <div>
-      <footer className="mt-10">
+      <footer className="fixed bottom-20 left-1/2 transform -translate-x-1/2">
         <button
           onClick={openRules}
           className="rounded-lg border border-white px-12 py-3 text-lg hover:bg-white hover:text-secondary-darkText transition ease"
@@ -23,7 +23,7 @@ export default function Rules() {
       <article
         className={` flex flex-col bg-white py-28 px-6 w-full h-full fixed top-0 left-0 z-20 items-center gap-36 ${
           isHidden ? "hidden" : "block"
-        }`}
+        } transition ease 1s`}
       >
         <h1 className="text-3xl text-secondary-darkText font-extrabold">
           RULES

@@ -15,15 +15,11 @@ export default function Main() {
           <img src={require("../images/bg-triangle.svg")} alt="" />
         </div>
         <div className="flex justify-between gap-8 z-10">
-          <Circle color1="paperGrad" color2="paperGradTo" target="paper" />
-          <Circle
-            color1="scissorsGrad"
-            color2="scissorsGradTo"
-            target="scissors"
-          />
+          <Circle target="paper" />
+          <Circle target="scissors" />
         </div>
         <div className="mt-10 z-10">
-          <Circle color1="rockGrad" color2="rockGradTo" target="rock" />
+          <Circle target="rock" />
         </div>
       </section>
 

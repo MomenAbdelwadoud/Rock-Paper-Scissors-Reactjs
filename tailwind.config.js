@@ -25,6 +25,11 @@ module.exports = {
       backgroundImage: {
         triangle: "require(url('./images/bg-triangle.svg'))",
       },
+      boxShadow: {
+        circle: "inset 0 2px 3px 1px #7A7A7A;",
+        winner:
+          "0 0 0 15px rgba(255,255,255,0.1),0 0 0 40px rgba(255,255,255,0.05), 0 0 0 65px rgba(255,255,255,0.01);",
+      },
     },
   },
   variants: {
