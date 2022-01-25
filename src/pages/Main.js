@@ -3,8 +3,28 @@ import Header from "../layout/Header";
 import Circle from "../components/Circle";
 import "../index.css";
 import Rules from "../components/Rules";
+import { ChoiceContext } from "../context/Context";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Main() {
+  const context = useContext(ChoiceContext);
+  const navigate = useNavigate();
+
+  const onChoose = (target) => {
+    context.choose(target);
+    navigate("playing", { replace: true });
+  };
+
+  function scissors() {
+    onChoose("scissors");
+  }
+  function paper() {
+    onChoose("paper");
+  }
+  function rock() {
+    onChoose("rock");
+  }
   return (
     <div className="flex flex-col justify-evenly items-center w-full">
       <header>
@@ -15,11 +35,17 @@ export default function Main() {
           <img src={require("../images/bg-triangle.svg")} alt="" />
         </div>
         <div className="flex justify-between gap-8 z-10">
-          <Circle target="paper" />
-          <Circle target="scissors" />
+          <button onClick={paper}>
+            <Circle target="paper" />
+          </button>
+          <button onClick={scissors}>
+            <Circle target="scissors" />
+          </button>
         </div>
         <div className="mt-10 z-10">
-          <Circle target="rock" />
+          <button onClick={rock}>
+            <Circle target="rock" />
+          </button>
         </div>
       </section>
 

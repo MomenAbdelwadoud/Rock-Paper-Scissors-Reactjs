@@ -1,16 +1,7 @@
 import React from "react";
 import "../index.css";
-import { ChoiceContext } from "../context/Context";
-import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-export default function Circle({ target, isWinner }) {
-  const context = useContext(ChoiceContext);
-  const navigate = useNavigate();
-  function onChoose() {
-    context.choose(target);
-    navigate("playing", { replace: true });
-  }
 
+export default function Circle({ target, isWinner }) {
   const colors = {
     scissors: ["scissorsGrad", "scissorsGradTo"],
     rock: ["rockGrad", "rockGradTo"],
@@ -30,8 +21,7 @@ export default function Circle({ target, isWinner }) {
     );
   } else {
     return (
-      <button
-        onClick={onChoose}
+      <div
         className={`p-3 w-32 h-32 rounded-full bg-gradient-to-b from-primary-${
           colors[target][0]
         } to-primary-${colors[target][1]} shadow-black shadow-xl ${
@@ -41,7 +31,7 @@ export default function Circle({ target, isWinner }) {
         <div className="rounded-full bg-white p-5  min-h-full flex items-center justify-center shadow-circle shadow-black">
           <img src={require(`../images/${figures[target]}`)} alt="" />
         </div>
-      </button>
+      </div>
     );
   }
 }
