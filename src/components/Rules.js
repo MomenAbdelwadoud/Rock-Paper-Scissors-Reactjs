@@ -15,7 +15,7 @@ export default function Rules() {
 
   return (
     <div>
-      <footer className="fixed bottom-20 lg:bottom-10 right-1/2 lg:right-10 transform translate-x-1/2 lg:translate-x-0">
+      <footer className="fixed bottom-22 lg:bottom-10 right-1/2 lg:right-10 transform translate-x-1/2 lg:translate-x-0">
         <button
           onClick={openRules}
           className="rounded-lg border border-white px-12 py-3 text-lg hover:bg-white hover:text-secondary-darkText transition ease"

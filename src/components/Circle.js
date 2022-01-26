@@ -32,7 +32,7 @@ export default function Circle({ target, isWinner }) {
       <div
         className={`p-3 lg:p-4 w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gradient-to-b from-primary-${
           colors[target][0]
-        } to-primary-${colors[target][1]} shadow-black shadow-xl ${
+        } to-primary-${colors[target][1]} ${
           isWinner ? "shadow-winner" : "" //winner shadow is a circular shadow around the circle(check css configs)
         }`}
       >

@@ -12,6 +12,7 @@ import Context from "./context/Context";
 function App() {
   return (
     <div>
+      {/* <div className="hidden bg-gradient-to-bl from-primary-scissorsGrad to-primary-scissorsGradTo from-primary-paperGrad to-primary-paperGradTo from-primary-rockGrad to-primary-rockGradTo shadow-winner"></div> */}
       <Context>
         <Routes>
           <Route exact path="/" element={<Main />}></Route>
