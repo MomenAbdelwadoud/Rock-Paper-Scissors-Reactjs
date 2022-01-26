@@ -2,7 +2,9 @@ import React from "react";
 import { useState } from "react";
 import "../index.css";
 
+// This component contains the rules button + rules component
 export default function Rules() {
+  // opening & closing the rules
   const [isHidden, setIsHidden] = useState(true);
   function closeRules() {
     setIsHidden(true);
@@ -10,6 +12,7 @@ export default function Rules() {
   function openRules() {
     setIsHidden(false);
   }
+
   return (
     <div>
       <footer className="fixed bottom-20 lg:bottom-10 right-1/2 lg:right-10 transform translate-x-1/2 lg:translate-x-0">

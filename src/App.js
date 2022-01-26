@@ -5,6 +5,10 @@ import Main from "./pages/Main";
 import Playing from "./pages/Playing";
 import Context from "./context/Context";
 
+// wrapping everything with the context to share the user choice and the score
+// using react-router to split the app into 2 main pages
+// Used TailwindCSS for styling
+// Tried to add comments as I can
 function App() {
   return (
     <div>

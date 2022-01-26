@@ -6,14 +6,19 @@ import { useContext, useEffect, useState } from "react";
 import { ChoiceContext } from "../context/Context";
 import { useNavigate } from "react-router-dom";
 
+// This is a very long file, I should've broke it into smaller components :)
 export default function Playing() {
+  // Generate random index as com choice
+  const choices = ["scissors", "paper", "rock"];
   function generateRandom() {
     return Math.floor(Math.random() * 3);
   }
 
+  // Getting user choice from the main page
   const context = useContext(ChoiceContext);
   const choice = context.choice;
 
+  // Basic Rock Paper Scissors logic
   function calculate(user, com) {
     let result;
     if (user === "paper") {
@@ -58,19 +63,20 @@ export default function Playing() {
     return result;
   }
 
-  const choices = ["scissors", "paper", "rock"];
+  // Initial value for com choice so a blank circle will show for 1sec and the the result
   let com = "placeholder";
   const [result, setResult] = useState("");
-  const [comstate, setComstate] = useState("placeholder");
+  const [comstate, setComstate] = useState("placeholder"); // used a variable then a state with the var value, using only the state and skipping the var doesn't work (setState takes some time to exec)
 
+  // Triggers after 1sec of showing this page
   const play = () => {
     com = choices[generateRandom()];
-
     setComstate(com);
     let res = calculate(choice, com);
     setResult(res);
   };
 
+  // Because setResult takes time so change the score after we get the result
   useEffect(() => {
     if (result === "win") {
       context.incScore();
@@ -80,12 +86,14 @@ export default function Playing() {
     }
   }, [result]);
 
+  // useEffect so it executes only when the page is rendered for the first time and wait 1sec to exec just as a cool effect O.O!
   useEffect(() => {
     setTimeout(() => {
       play();
     }, 1000);
   }, []);
 
+  // Play again functionality
   const navigate = useNavigate();
   const playAgain = () => {
     navigate("/", { replace: false });
@@ -97,6 +105,7 @@ export default function Playing() {
       <section className="flex justify-between p-8 gap-10 lg:gap-20">
         <div className="flex flex-col items-center justify-between lg:flex-col-reverse lg:text-xl lg:gap-4">
           <figure>
+            {/* Shows cool shadow around the winner */}
             <Circle target={choice} isWinner={result === "win"} />
           </figure>
           <p className="font-bold text-sm mt-4 font-primary tracking-wider">
@@ -105,6 +114,7 @@ export default function Playing() {
         </div>
         <div className="flex flex-col items-center justify-between lg:flex-col-reverse lg:text-xl lg:gap-4">
           <figure>
+            {/* Shows cool shadow around the winner */}
             <Circle target={comstate} isWinner={result === "lose"} />
           </figure>
           <p className="font-bold text-sm mt-4 font-primary tracking-wider">
@@ -115,6 +125,7 @@ export default function Playing() {
       <footer
         className={`${result ? "block" : "hidden"} flex flex-col items-center`}
       >
+        {/* Only show footer when we get the result(1sec) */}
         <section className="font-primary flex flex-col justify-between items-center gap-6">
           <h1 className="text-6xl uppercase">
             {result === "draw" ? "DRAW" : `YOU ${result}`}

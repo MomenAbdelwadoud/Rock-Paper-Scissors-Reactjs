@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { ChoiceContext } from "../context/Context";
 
 export default function Header() {
+  // importing context to use score value
   const context = useContext(ChoiceContext);
   return (
     <div className="rounded-lg border-2 border-secondary-headerOutline p-3 flex justify-between items-center gap-32 lg:gap-60 ">

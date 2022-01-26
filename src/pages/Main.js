@@ -11,11 +11,13 @@ export default function Main() {
   const context = useContext(ChoiceContext);
   const navigate = useNavigate();
 
+  // when user choose rock/paper/scissors
   const onChoose = (target) => {
     context.choose(target);
     navigate("playing", { replace: true });
   };
 
+  // Passing the corresponding target to the above function
   function scissors() {
     onChoose("scissors");
   }
