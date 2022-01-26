@@ -5,6 +5,7 @@ import Header from "../layout/Header";
 import { useContext, useEffect, useState } from "react";
 import { ChoiceContext } from "../context/Context";
 import { useNavigate } from "react-router-dom";
+
 export default function Playing() {
   function generateRandom() {
     return Math.floor(Math.random() * 3);
@@ -58,33 +59,43 @@ export default function Playing() {
   }
 
   const choices = ["scissors", "paper", "rock"];
-  const [com, setCom] = useState("");
+  let com = "placeholder";
   const [result, setResult] = useState("");
+  const [comstate, setComstate] = useState("placeholder");
 
   const play = () => {
-    setCom(choices[generateRandom()]);
-    setResult(calculate(choice, com));
-    console.log(result);
+    com = choices[generateRandom()];
+
+    setComstate(com);
+    let res = calculate(choice, com);
+    setResult(res);
   };
 
   useEffect(() => {
-    play();
-    return () => {
-      setResult("");
-      context.choose("");
-    };
+    if (result === "win") {
+      context.incScore();
+    }
+    if (result === "lose") {
+      context.decScore();
+    }
+  }, [result]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      play();
+    }, 1000);
   }, []);
 
   const navigate = useNavigate();
   const playAgain = () => {
-    navigate("/", { replace: true });
+    navigate("/", { replace: false });
   };
 
   return (
-    <div className="flex flex-col justify-evenly items-center w-full gap-16">
+    <div className="flex flex-col justify-evenly items-center w-full gap-16 lg:p-2">
       <Header />
-      <section className="flex justify-between p-8 gap-10">
-        <div className="flex flex-col items-center justify-between">
+      <section className="flex justify-between p-8 gap-10 lg:gap-20">
+        <div className="flex flex-col items-center justify-between lg:flex-col-reverse lg:text-xl lg:gap-4">
           <figure>
             <Circle target={choice} isWinner={result === "win"} />
           </figure>
@@ -92,16 +103,18 @@ export default function Playing() {
             YOU PICKED
           </p>
         </div>
-        <div className="flex flex-col items-center justify-between">
+        <div className="flex flex-col items-center justify-between lg:flex-col-reverse lg:text-xl lg:gap-4">
           <figure>
-            <Circle target={com} isWinner={result === "lose"} />
+            <Circle target={comstate} isWinner={result === "lose"} />
           </figure>
           <p className="font-bold text-sm mt-4 font-primary tracking-wider">
             THE HOUSE PICKED
           </p>
         </div>
       </section>
-      <footer className="flex flex-col items-center">
+      <footer
+        className={`${result ? "block" : "hidden"} flex flex-col items-center`}
+      >
         <section className="font-primary flex flex-col justify-between items-center gap-6">
           <h1 className="text-6xl uppercase">
             {result === "draw" ? "DRAW" : `YOU ${result}`}

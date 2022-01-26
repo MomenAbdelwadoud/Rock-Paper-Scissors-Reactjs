@@ -24,6 +24,8 @@ module.exports = {
       },
       backgroundImage: {
         triangle: "require(url('./images/bg-triangle.svg'))",
+        radial:
+          "radial-gradient(circle at top,hsl(214, 47%, 23%),hsl(237, 49%, 15%))",
       },
       boxShadow: {
         circle: "inset 0 2px 3px 1px #7A7A7A;",

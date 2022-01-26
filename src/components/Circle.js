@@ -15,14 +15,16 @@ export default function Circle({ target, isWinner }) {
 
   if (target === "placeholder") {
     return (
-      <div className={`p-3 w-32 h-32 rounded-full bg-transparent`}>
+      <div
+        className={`p-3 w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-transparent`}
+      >
         <div className="rounded-full bg-secondary-bgGrad p-5 min-h-full"></div>
       </div>
     );
   } else {
     return (
       <div
-        className={`p-3 w-32 h-32 rounded-full bg-gradient-to-b from-primary-${
+        className={`p-3 lg:p-4 w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gradient-to-b from-primary-${
           colors[target][0]
         } to-primary-${colors[target][1]} shadow-black shadow-xl ${
           isWinner ? "shadow-winner" : ""
