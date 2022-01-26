@@ -2,7 +2,7 @@
 
 ## This is a solution to [Frontend Mentor](https://www.frontendmentor.io) challenge
 
-### Want to try the game? [Try it from here]()
+### Want to try the game? [Try it from here](https://rock-paper-scissors-reactjs.pages.dev/)
 
 ![Design preview for the Rock, Paper, Scissors coding challenge](./design/desktop-preview.jpg)
 
