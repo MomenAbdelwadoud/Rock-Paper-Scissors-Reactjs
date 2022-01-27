@@ -100,10 +100,10 @@ export default function Playing() {
   };
 
   return (
-    <div className="flex flex-col justify-evenly items-center w-full gap-16 lg:p-2">
+    <div className="flex flex-col justify-evenly items-center w-full gap-10 md:p-2 h-full">
       <Header />
-      <section className="flex justify-between p-8 gap-10 lg:gap-20">
-        <div className="flex flex-col items-center justify-between lg:flex-col-reverse lg:text-xl lg:gap-4">
+      <section className="flex justify-between p-8 gap-10 md:gap-20">
+        <div className="flex flex-col items-center justify-between md:flex-col-reverse md:text-xl md:gap-4">
           <figure>
             {/* Shows cool shadow around the winner */}
             <Circle target={choice} isWinner={result === "win"} />
@@ -112,7 +112,7 @@ export default function Playing() {
             YOU PICKED
           </p>
         </div>
-        <div className="flex flex-col items-center justify-between lg:flex-col-reverse lg:text-xl lg:gap-4">
+        <div className="flex flex-col items-center justify-between md:flex-col-reverse md:text-xl md:gap-4">
           <figure>
             {/* Shows cool shadow around the winner */}
             <Circle target={comstate} isWinner={result === "lose"} />
@@ -127,7 +127,7 @@ export default function Playing() {
       >
         {/* Only show footer when we get the result(1sec) */}
         <section className="font-primary flex flex-col justify-between items-center gap-6">
-          <h1 className="text-6xl uppercase">
+          <h1 className="text-4xl uppercase">
             {result === "draw" ? "DRAW" : `YOU ${result}`}
           </h1>
           <button

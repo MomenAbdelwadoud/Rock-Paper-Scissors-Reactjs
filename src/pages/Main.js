@@ -28,15 +28,15 @@ export default function Main() {
     onChoose("rock");
   }
   return (
-    <div className="flex flex-col justify-evenly items-center w-full lg:p-2">
+    <div className="flex flex-col justify-evenly items-center w-full h-full md:p-2">
       <header>
         <Header />
       </header>
-      <section className="flex flex-col items-center justify-between relative my-28">
-        <div className="absolute p-6 top-8 -z-10">
+      <section className="flex flex-col items-center justify-between relative mt-20">
+        <div className="absolute p-7 top-8 -z-10">
           <img src={require("../images/bg-triangle.svg")} alt="" />
         </div>
-        <div className="flex justify-between gap-8 lg:gap-16 z-10">
+        <div className="flex justify-between gap-8 md:gap-16 z-10">
           <button onClick={paper}>
             <Circle target="paper" />
           </button>
@@ -50,7 +50,6 @@ export default function Main() {
           </button>
         </div>
       </section>
-
       <Rules></Rules>
     </div>
   );

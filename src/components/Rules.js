@@ -15,16 +15,16 @@ export default function Rules() {
 
   return (
     <div>
-      <footer className="fixed bottom-22 lg:bottom-10 right-1/2 lg:right-10 transform translate-x-1/2 lg:translate-x-0">
+      <footer className="fixed bottom-12 lg:bottom-10 right-1/2 lg:right-10 transform translate-x-1/2 lg:translate-x-0">
         <button
           onClick={openRules}
-          className="rounded-lg border border-white px-12 py-3 text-lg hover:bg-white hover:text-secondary-darkText transition ease"
+          className="rounded-lg border border-white px-10 py-2 text-lg hover:bg-white hover:text-secondary-darkText transition ease"
         >
           RULES
         </button>
       </footer>
       <article
-        className={`flex flex-col bg-white py-28 px-6 lg:p-5  w-full h-full lg:w-1/3 lg:h-1/2 fixed top-0 left-0 lg:top-1/2 lg:left-1/2 transform lg:-translate-x-1/2 lg:-translate-y-1/2 z-20 items-center lg:items-baseline gap-36 lg:gap-8 ${
+        className={`flex flex-col bg-white py-20 px-6 lg:p-5  w-full h-full lg:h-2/3 lg:w-1/3 fixed top-0 left-0  z-20 items-center lg:items-baseline gap-28 lg:gap-14 lg:left-1/2 lg:-translate-x-1/2 lg:top-1/2 lg:-translate-y-1/2 ${
           isHidden ? "hidden" : "block"
         } lg:rounded lg:shadow-2xl`}
       >

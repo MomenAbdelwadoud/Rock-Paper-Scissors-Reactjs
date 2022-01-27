@@ -21,7 +21,7 @@ export default function Circle({ target, isWinner }) {
   if (target === "placeholder") {
     return (
       <div
-        className={`p-3 w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-transparent`}
+        className={`p-3 w-28 h-28 md:w-32 md:h-32 rounded-full bg-transparent`}
       >
         <div className="rounded-full bg-secondary-bgGrad p-5 min-h-full"></div>
       </div>
@@ -30,13 +30,13 @@ export default function Circle({ target, isWinner }) {
     // The component takes the target and render the corresponding circle
     return (
       <div
-        className={`p-3 lg:p-4 w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gradient-to-b from-primary-${
+        className={`p-3 md:p-4 w-28 h-28 md:w-32 md:h-32 rounded-full bg-gradient-to-b from-primary-${
           colors[target][0]
         } to-primary-${colors[target][1]} ${
           isWinner ? "shadow-winner" : "" //winner shadow is a circular shadow around the circle(check css configs)
         }`}
       >
-        <div className="rounded-full bg-white p-5  min-h-full flex items-center justify-center shadow-circle shadow-black">
+        <div className="rounded-full bg-white md:p-5 md:px-2 min-h-full flex items-center justify-center shadow-circle shadow-black">
           <img src={require(`../images/${figures[target]}`)} alt="" />
         </div>
       </div>
